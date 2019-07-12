@@ -17,7 +17,7 @@ module.exports = function (app) {
 
     // Delete an example by id
     app.delete("/api/notes/:id", function (req, res) {
-        db.Note.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
+        db.Note.destroy({ where: { id: req.params.id } }).then(function (coder_kiosk_db) {
             res.json(coder_kiosk_db);
         });
     });

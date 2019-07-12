@@ -1,4 +1,5 @@
-/* var express = require("express");
+var express = require("express");
+
 
 var PORT = process.env.PORT || 3000;
 
@@ -25,7 +26,7 @@ app.use(routes);
 app.listen(PORT, function () {
     console.log("App now listening at localhost:" + PORT);
 });
- */
+ 
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");

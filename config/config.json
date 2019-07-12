@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "database.sql",
+    "database": "coder_kiosk_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
