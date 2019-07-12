@@ -7,6 +7,13 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1]
             }
         },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
         body: {
             type: DataTypes.TEXT,
             allowNull: false,
@@ -17,7 +24,8 @@ module.exports = function (sequelize, DataTypes) {
         category: {
             type: DataTypes.STRING,
             defaultValue: "Personal"
-        }
+        },
+
     });
     return note;
 };
