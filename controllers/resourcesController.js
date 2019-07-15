@@ -1,34 +1,34 @@
-/* var express = require("express");
+var express = require("express");
 
 var router = express.Router();
 
 // Import the model (cat.js) to use its database functions.
-var note = require("../models/note.js");
+var resource = require("../models/resource.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function (req, res) {
-    note.all(function (data) {
+    resource.all(function (data) {
         var hbsObject = {
-            notes: data
+            resource: data
         };
         console.log(hbsObject);
         res.render("index", hbsObject);
     });
 });
 
-router.post("/api/notes", function (req, res) {
+router.post("/api/resources", function (req, res) {
     note.create(["name", "sleepy"], [req.body.name, req.body.sleepy], function (result) {
         // Send back the ID of the new quote
         res.json({ id: result.insertId });
     });
 });
 
-router.put("/api/notes/:id", function (req, res) {
+router.put("/api/resources/:id", function (req, res) {
     var condition = "id = " + req.params.id;
 
     console.log("condition", condition);
 
-    note.update(
+    resource.update(
         {
             sleepy: req.body.sleepy
         },
@@ -46,4 +46,3 @@ router.put("/api/notes/:id", function (req, res) {
 
 // Export routes for server.js to use.
 module.exports = router;
- */

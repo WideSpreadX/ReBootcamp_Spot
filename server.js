@@ -80,10 +80,6 @@ module.exports = app;
 
 
 
-// Database configuration
-// Save the URL of our database as well as the name of our collection
-var databaseUrl = "coder_kiosk_db";
-var collections = ["notes"];
 
 // Use mongojs to hook the database to the db variable
 var express = require("express");
@@ -114,7 +110,7 @@ app.use(express.static("public"));
 
 // Database configuration
 var databaseUrl = "coder_kiosk_db";
-var collections = ["notes"];
+var collections = ["notes", "resources"];
 
 // Hook mongojs config to db variable
 var db = mongojs(databaseUrl, collections);
@@ -148,6 +144,23 @@ app.post("/submit", (req, res) => {
       res.status(400).send("unable to save to database");
     });
 });
+
+var resourceSchema = new mongoose.Schema({
+  titleResource: String,
+  resource: String,
+  url: String
+});
+var Resource = mongoose.model("Resources", resourceSchema);
+app.post("/submit-resource", (req, res) => {
+  var resourceData = new Resource(req.body);
+  resourceData.save()
+    .then(item => {
+      res.send("Your resource was saved");
+    })
+    .catch(err => {
+      res.status(400).send("Something went wrong, please try again.");
+    });
+});
 /* app.post("/submit", function(req, res) {
   db.notes.insertOne(req.body), function(err, data) {
     if (err) {
@@ -162,7 +175,7 @@ app.post("/submit", (req, res) => {
 // GET: /all
 // ====================================================
 app.get("/all", function (req, res) {
-  db.notes.find({}, function (err, data) {
+  db.resources.find({}, function (err, data) {
     if (err) {
       console.log(err);
     }

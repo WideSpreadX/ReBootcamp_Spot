@@ -6,24 +6,180 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Document</title>
+    <title>Coder Kiosk</title>
+    <link rel="stylesheet" href="https://use.typekit.net/uhf2sjt.css">
     <style>
         body {
-            background: blue;
+            background: rgb(109, 109, 153);
             color: white;
+            overflow-x: hidden;
+            font-family: aviano-future, sans-serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        .container {
+            border-radius: 10px;
+            width: 20vw;
+            height: 80vh;
+            margin-top: 2%;
+            position: fixed;
+            right: 25%;
+            box-shadow: inset 0 0 20px white;
+            border: solid 4px #fff;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 52px;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: bold;
         }
 
         #results {
-            background: black;
-            border: solid 2px red;
+            width: 10vw;
+            position: absolute;
+            right: 0;
+            margin-top: 30px;
+        }
+
+        .a-note {
+            width: 98%;
+            background: rgba(255, 255, 255, 0.301);
+            border: solid 2px rgb(81, 218, 252);
+            color: #000;
+            text-shadow: 0 0 2px rgb(81, 218, 252);
             border-radius: 10px;
+            box-shadow: inset 0 0 10px white, 0 0 5px rgb(81, 218, 252);
+            padding: 8px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .a-note:hover {
+            background: rgb(73, 103, 168);
+        }
+
+        .dataTitle {
+            font-size: 22px;
+            font-weight: bolder;
+        }
+
+        .dataNote {
+            color: blue;
+        }
+
+        button {
+            width: 90%;
+            margin-left: 5%;
+            margin-top: 20px;
+            border-radius: 5px;
+            padding: 5px;
+            background: rgb(20, 76, 139);
+            cursor: pointer;
+            color: #fff;
+        }
+
+        button:first-of-type {
+            margin-top: 60px;
+        }
+
+        input {
+            width: 90%;
+            margin-left: 5%;
+            border-radius: 5px;
+            box-shadow: inset 0 0 5px #000, 0 0 10px #222;
+            padding: 3px;
+            font-size: 24px;
+            font-weight: bolder;
+        }
+
+        textarea {
+            width: 90%;
+            margin-left: 5%;
+            height: 200px;
+            border-radius: 5px;
+            box-shadow: inset 0 0 5px #000, 0 0 10px #222;
+        }
+
+        .container-resources {
+            border-radius: 10px;
+            width: 20vw;
+            height: 80vh;
+            margin-top: 2%;
+            position: fixed;
+            left: 25%;
+            box-shadow: inset 0 0 20px white;
+            border: solid 4px #fff;
+            padding: 20px;
+        }
+
+        .a-resource {
+            width: 98%;
+            background: rgba(255, 255, 255, 0.301);
+            border: solid 2px rgb(81, 218, 252);
+            color: #000;
+            text-shadow: 0 0 2px rgb(81, 218, 252);
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px white, 0 0 5px rgb(81, 218, 252);
+            padding: 8px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #results-resources {
+            width: 10vw;
+            position: absolute;
+            left: 0;
+            margin-top: 30px;
+        }
+
+        .main-body {
+            position: absolute;
+            /*TAKE THIS POSITION OUT LATER*/
         }
     </style>
 </head>
 
 <body>
+    <div class="main-body">
+        <div class="left">
+            <div class="left-container">
+                <iframe src="" frameborder="0"></iframe></div>
+        </div>
+        <div class="right">
+            <div class="right-container">
+                <iframe src="" frameborder="0"></iframe></div>
+        </div>
+        <div class="center-split">
+            <div class="menu">
+                <ul>
+                    <li>Dashboard</li>
+                    <li>Activities</li>
+                    <li>Homework</li>
+                    <li>Remote Class</li>
+                    <li>Learn</li>
+                    <li>Portal</li>
+                </ul>
+            </div>
+            <div class="tool-menu">
+                <ul>
+                    <li>Code Editor</li>
+                    <li>References</li>
+                    <li>Notes</li>
+                    <li>Resources</li>
+                    <li>Flashcards</li>
+                    <li>Help</li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <div class="container">
-        <h1>Note Database Up and Running!</h1>
+        <h1>Notes</h1>
         <div id="user-input">
             <p>Title</p>
             <input type="text" id="title" />
@@ -32,13 +188,32 @@
             <textarea id="note"></textarea>
             <div id="buttons">
                 <div id="action-button">
-                    <button id="make-new">Submit</button>
+                    <button id="make-new">Add New Note</button>
                 </div>
                 <button id="clear-all">Delete All Notes</button>
             </div>
         </div>
     </div>
     <div id="results">
+        <p>test-not-working</p>
+    </div>
+    <div class="container-resources">
+        <h1>Resources</h1>
+        <div id="user-input-resources">
+            <p>Title</p>
+            <input type="text" id="titleResource" />
+            <br>
+            <p>Note</p>
+            <textarea id="resource"></textarea>
+            <div id="buttons">
+                <div id="action-button-resource">
+                    <button id="make-new-resource">Add New Resource</button>
+                </div>
+                <button id="clear-all-resources">Delete All Resources</button>
+            </div>
+        </div>
+    </div>
+    <div id="results-resources">
         <p>test-not-working</p>
     </div>
     <script src="app.js"></script>
