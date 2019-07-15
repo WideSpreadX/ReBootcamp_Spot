@@ -1,31 +1,17 @@
-module.exports = function (sequelize, DataTypes) {
-    var note = sequelize.define("note", {
-        title: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        description: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        body: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        category: {
-            type: DataTypes.STRING,
-            defaultValue: "Personal"
-        },
+var mongoose = require("mongoose");
 
-    });
-    return note;
-};
+// Save a reference to the Schema constructor
+var Note = mongoose.Schema;
+
+// Using the Schema constructor, create a new NoteSchema object
+// This is similar to a Sequelize model
+var NoteSchema = new Note({
+  title: String,
+  note: String
+});
+
+// This creates our model from the above schema, using mongoose's model method
+var Note = mongoose.model("Note", NoteSchema);
+
+// Export the Note model
+module.exports = Note;

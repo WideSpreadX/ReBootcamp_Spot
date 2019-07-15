@@ -1,12 +1,12 @@
-var db = require("../models");
+/* var db = require("../models");
 
 module.exports = function (app) {
     // Load index page
     app.get("/", function (req, res) {
-        db.Example.findAll({}).then(function (dbExamples) {
+        db.Note.findAll({}).then(function (coder_kiosk_db) {
             res.render("index", {
                 msg: "Welcome!",
-                examples: dbExamples
+                examples: coder_kiosk_db
             });
         });
     });
@@ -25,3 +25,4 @@ module.exports = function (app) {
         res.render("404");
     });
 };
+ */

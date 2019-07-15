@@ -1,4 +1,4 @@
-var db = require("../models");
+/* var db = require("../models");
 
 module.exports = function (app) {
     // Get all resources
@@ -22,3 +22,4 @@ module.exports = function (app) {
         });
     });
 };
+ */

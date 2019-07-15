@@ -1,4 +1,4 @@
-var mysql = require("mysql");
+/* var mysql = require("mysql");
 var connection = mysql.createConnection({
     host: "localhost",
     // Your port; if not 3306
@@ -14,3 +14,4 @@ connection.connect(function (err) {
     console.log("connected as id " + connection.threadId);
     connection.end();
 });
+ */
